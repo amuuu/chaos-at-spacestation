@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/CodeSaver.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://tmp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://computer1.gd" type="Script" id=3]
+[ext_resource path="res://root.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.756863 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 15
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 4.44696
+margin_top = -3.41647
+margin_right = 1028.45
+margin_bottom = 596.583
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 85.6768
+margin_top = 103.801
+margin_right = 481.677
+margin_bottom = 158.801
+custom_fonts/font = SubResource( 2 )
+text = "Diary Entry (07/11/2020) [Yesterday]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 827.841
+margin_top = 550.715
+margin_right = 981.841
+margin_bottom = 605.715
+custom_fonts/font = SubResource( 2 )
+text = "(press Q to come back)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 83.6567
+margin_top = 228.473
+margin_right = 950.657
+margin_bottom = 514.473
+custom_fonts/normal_font = SubResource( 3 )
+text = "Some people like to watch movie when they're in space, some like to join game jams alongside with other humans on earth. I've watched The Office again and again. I need something new.  So  I decided to mess with spaceship computers or some other reason that sci-fi writers come up with in their stories. I hope I don't break them.
+I have changed multiple computers codes in whole spacestation. If anything unexpected happens, check them out. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 89.3627
+margin_top = 142.516
+margin_right = 332.363
+margin_bottom = 163.516
+custom_fonts/font = SubResource( 4 )
+text = "Scott Michaelson - Engineer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="root" type="Node2D" parent="." instance=ExtResource( 2 )]
+script = ExtResource( 7 )
+[connection signal="load_root_scene" from="." to="." method="_on_Node2D_load_root_scene"]
+[connection signal="gravity_on" from="root" to="root/KinematicBody2D" method="_on_root_gravity_on"]
+[connection signal="gravity_out" from="root" to="root/KinematicBody2D" method="_on_root_gravity_out"]
+[connection signal="lights_on" from="root" to="root" method="_on_root_lights_on"]
+[connection signal="lights_out" from="root" to="root" method="_on_root_lights_out"]
