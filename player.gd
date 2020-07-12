@@ -44,7 +44,7 @@ func _physics_process(delta):
 		velocity.y = JUMPFORCE
 		$Sprite.play("jetpack")
 
-	if Input.is_action_pressed("gravity_test"):
+	if Input.is_action_pressed("rocket_launch") and global.rocket_capacity>0:
 		$Particles2D.emitting=true
 		if  not gravity_out:
 			velocity.y = -ROCKETPOWER*side
@@ -52,7 +52,7 @@ func _physics_process(delta):
 		else:
 			velocity.y = ROCKETPOWER*side
 			$Particles2D.process_material.gravity=Vector3(0,-100,0)
-			
+		
 		$Sprite.play("jetpack")
 		emit_signal("rocket_launched")
 		
@@ -62,7 +62,7 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x,0,0.2)
 	
 	# handle flashlight
-	if Input.is_action_pressed("increase_light"):
+	if Input.is_action_pressed("increase_light") and global.light_battery>0:
 		$Light2D.texture_scale -= 0.015
 		emit_signal("flashlight_increased")
 	elif Input.is_action_pressed("decrease_light"):
@@ -92,6 +92,11 @@ func _physics_process(delta):
 			packed_scene2.pack(get_tree().get_current_scene())
 			ResourceSaver.save("res://tmp3.tscn", packed_scene2)
 		get_tree().change_scene("res://computer"+String(pc_number)+".tscn")
+		
+
+	if Input.is_action_just_pressed("main_menu"):
+		global.reset_game()
+		get_tree().change_scene("res://startmenu.tscn")
 
 
 func _on_root_gravity_out():

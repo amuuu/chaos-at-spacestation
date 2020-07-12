@@ -8,7 +8,7 @@ func _process(delta):
 		emit_signal("load_root_scene3")
 	
 	if $Button.pressed:
-		var result = $Code.search("BIG_BUG", 2, 114, 0)
+		var result = $Code.search("NOT", 2, 7, 0)
 		if result.size() == 0:			
 			global.won = true
 		

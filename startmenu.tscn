@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/CodeSaver.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://startmenu.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+lifetime_randomness = 0.77
+emission_shape = 2
+emission_box_extents = Vector3( 3000, 2000, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 11.63
+initial_velocity_random = 0.13
+angular_velocity = -569.3
+angular_velocity_random = 0.14
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 6.81
+scale_random = 0.22
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -3.0
+margin_right = 1034.0
+margin_bottom = 608.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 427.426, 275.25 )
+amount = 500
+process_material = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 227.909
+margin_top = 122.856
+margin_right = 815.909
+margin_bottom = 185.856
+custom_fonts/font = SubResource( 3 )
+text = "CHAOS AT SPACESTATION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 343.555
+margin_top = 263.799
+margin_right = 663.555
+margin_bottom = 308.799
+custom_fonts/font = SubResource( 4 )
+text = "Press S to start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label2" type="Label" parent="Node2D"]
+margin_left = 67.3477
+margin_top = 479.291
+margin_right = 859.348
+margin_bottom = 529.291
+custom_fonts/font = SubResource( 5 )
+text = "A   D   |   J     K    L   |   space"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Node2D"]
+margin_left = 59.4905
+margin_top = 540.465
+margin_right = 824.49
+margin_bottom = 561.465
+custom_fonts/font = SubResource( 6 )
+text = "Left      Right           Flashlight-      Jetpack    Flashlight+                Jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
